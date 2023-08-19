@@ -10,11 +10,13 @@ class AnimatedPaddingSample extends StatefulWidget {
 }
 
 class _AnimatedPaddingSampleState extends State<AnimatedPaddingSample> {
+  bool isPaddingAdded = false;
   double padding = 0;
 
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
+      floatingActionButton: _floatingActionButton(),
       title: 'AnimatedPadding',
       child: Center(
         child: ListView(
@@ -23,26 +25,35 @@ class _AnimatedPaddingSampleState extends State<AnimatedPaddingSample> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      padding = padding == 0 ? 20 : 0;
-                    });
-                  },
-                  child: const Text('animate'),
-                ),
-                AnimatedPaddingBoxRow(count: 2, padding: padding),
-                AnimatedPaddingBoxRow(count: 3, padding: padding),
-                AnimatedPaddingBoxRow(count: 4, padding: padding),
                 AnimatedPaddingBoxRow(count: 5, padding: padding),
                 AnimatedPaddingBoxRow(count: 4, padding: padding),
                 AnimatedPaddingBoxRow(count: 3, padding: padding),
                 AnimatedPaddingBoxRow(count: 2, padding: padding),
+                AnimatedPaddingBoxRow(count: 3, padding: padding),
+                AnimatedPaddingBoxRow(count: 4, padding: padding),
+                AnimatedPaddingBoxRow(count: 5, padding: padding),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  FloatingActionButton _floatingActionButton() {
+    return FloatingActionButton.extended(
+      onPressed: () {
+        setState(() {
+          padding = isPaddingAdded ? 0 : 8;
+          isPaddingAdded = !isPaddingAdded;
+        });
+      },
+      label: Text(
+        isPaddingAdded
+            ? "Remove Padding"
+            : "Add Padding",
+      ),
+      backgroundColor: Colors.blue[900],
     );
   }
 }
@@ -77,7 +88,7 @@ class AnimatedPaddingBox extends StatelessWidget {
         return AnimatedPadding(
           padding: EdgeInsets.all(padding),
           duration: const Duration(milliseconds: 300),
-          curve: Curves.fastOutSlowIn,
+          curve: Curves.fastEaseInToSlowEaseOut,
           child: Container(
             height: constraints.maxWidth,
             color: Colors.blue,

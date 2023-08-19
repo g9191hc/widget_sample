@@ -10,7 +10,7 @@ class AnimationSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: 'Animation',
+      title: 'Animations/',
       child: ListView(
         children: const [
           PushButton(name: 'AnimatedOpacity', push: AnimatedOpacitySample()),

@@ -9,7 +9,7 @@ class AnimatedOpacitySample extends StatefulWidget {
 }
 
 class _AnimatedOpacitySampleState extends State<AnimatedOpacitySample> {
-  double opacity = 0.5;
+  double opacity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _AnimatedOpacitySampleState extends State<AnimatedOpacitySample> {
                 AnimatedOpacity(
                   opacity: opacity,
                   duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOutCubicEmphasized,
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   child: Container(
                     width: 200,
                     height: 200,
