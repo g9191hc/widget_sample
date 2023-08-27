@@ -11,16 +11,12 @@ class FlutterSpeedDialSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final labelStyle =  TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.w500,
+    );
+
     return DefaultLayout(
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'add'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'cart'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'cart'),
-        ],
-      ),
       title: 'Flutter Speed Dial',
       child: Center(child: Text('Flutter Speed Dial')),
       floatingActionButton: SpeedDial(
@@ -33,6 +29,7 @@ class FlutterSpeedDialSample extends StatelessWidget {
           SpeedDialChild(
               child: Icon(Icons.copy),
               label: 'copy',
+              labelStyle: labelStyle,
               onTap: () {
                 Fluttertoast.showToast(msg: 'copied');
               },
@@ -40,9 +37,7 @@ class FlutterSpeedDialSample extends StatelessWidget {
           SpeedDialChild(
             child: Icon(Icons.paste_outlined),
             label: 'paste',
-            labelStyle: TextStyle(
-              fontSize: 20.0,
-            ),
+            labelStyle: labelStyle,
             onTap: () {
               Fluttertoast.showToast(msg: 'pasted');
             },

@@ -39,6 +39,8 @@ dependencies:
   flutter_speed_dial: ^5.0.0
   fluttertoast: ^8.2.2
   font_awesome_flutter: ^10.5.0
+  dcdg: ^4.1.0
+  sentry_flutter: ^7.9.0
 
 
 
