@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class DefaultLayout extends StatelessWidget {
+class DefaultLayoutWithListView extends StatelessWidget {
   final String title;
-  final Widget child;
+  final List<Widget> children;
   Widget? floatingActionButton;
   FloatingActionButtonLocation? floatingActionButtonLocation;
   Widget? bottomNavigationBar;
 
-  DefaultLayout({
+  DefaultLayoutWithListView({
     super.key,
     required this.title,
-    required this.child,
+    required this.children,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.bottomNavigationBar,
@@ -26,7 +26,24 @@ class DefaultLayout extends StatelessWidget {
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       bottomNavigationBar: bottomNavigationBar,
-      body: child,
+      body: _Body(children: children),
     );
+  }
+}
+
+class _Body extends StatelessWidget {
+  final List<Widget> children;
+
+  const _Body({super.key, required this.children});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
+        child: Scrollbar(
+          child: ListView(
+            children: children,
+          ),
+        ));
   }
 }

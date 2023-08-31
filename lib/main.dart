@@ -1,21 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:widget_sample/layout/default_layout.dart';
-import 'package:widget_sample/layout/splash_screen.dart';
-import 'package:widget_sample/widget/widget_list.dart';
-import 'package:widget_sample/widget/snack_bar.dart';
-import 'package:dcdg/dcdg.dart';
+import 'package:widget_sample/view/widget_list.dart';
 
 import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+    await Firebase.initializeApp(
+      name: 'test',
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
 
   await SentryFlutter.init(
     (options) {

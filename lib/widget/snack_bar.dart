@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_sample/layout/default_layout.dart';
+import 'package:widget_sample/layout/default_layout_with_list_view.dart';
 
 class SnackBarSample extends StatelessWidget {
   const SnackBarSample({super.key});
@@ -39,16 +39,16 @@ class SnackBarSample extends StatelessWidget {
       },
     );
 
-    return DefaultLayout(
+    return DefaultLayoutWithListView(
       title: 'SnackBar',
-      child: Center(
-        child: ElevatedButton(
+      children: [
+        ElevatedButton(
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           },
           child: Text('SnackBar 보이기'),
         ),
-      ),
+      ],
     );
   }
 }

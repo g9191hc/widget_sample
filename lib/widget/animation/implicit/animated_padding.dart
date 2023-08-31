@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../layout/default_layout.dart';
+import '../../../layout/default_layout_with_list_view.dart';
 
 class AnimatedPaddingSample extends StatefulWidget {
   const AnimatedPaddingSample({super.key});
@@ -15,28 +15,24 @@ class _AnimatedPaddingSampleState extends State<AnimatedPaddingSample> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultLayout(
+    return DefaultLayoutWithListView(
       floatingActionButton: _floatingActionButton(),
       title: 'AnimatedPadding',
-      child: Center(
-        child: ListView(
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                AnimatedPaddingBoxRow(count: 5, padding: padding),
-                AnimatedPaddingBoxRow(count: 4, padding: padding),
-                AnimatedPaddingBoxRow(count: 3, padding: padding),
-                AnimatedPaddingBoxRow(count: 2, padding: padding),
-                AnimatedPaddingBoxRow(count: 3, padding: padding),
-                AnimatedPaddingBoxRow(count: 4, padding: padding),
-                AnimatedPaddingBoxRow(count: 5, padding: padding),
-              ],
-            ),
+            AnimatedPaddingBoxRow(count: 5, padding: padding),
+            AnimatedPaddingBoxRow(count: 4, padding: padding),
+            AnimatedPaddingBoxRow(count: 3, padding: padding),
+            AnimatedPaddingBoxRow(count: 2, padding: padding),
+            AnimatedPaddingBoxRow(count: 3, padding: padding),
+            AnimatedPaddingBoxRow(count: 4, padding: padding),
+            AnimatedPaddingBoxRow(count: 5, padding: padding),
           ],
         ),
-      ),
+      ],
     );
   }
 
@@ -49,9 +45,7 @@ class _AnimatedPaddingSampleState extends State<AnimatedPaddingSample> {
         });
       },
       label: Text(
-        isPaddingAdded
-            ? "Remove Padding"
-            : "Add Padding",
+        isPaddingAdded ? "Remove Padding" : "Add Padding",
       ),
       backgroundColor: Colors.blue[900],
     );
