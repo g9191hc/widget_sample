@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:widget_sample/view/widget_list.dart';
 
@@ -29,9 +30,11 @@ class _App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: WidgetList(),
+    return ProviderScope(
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: WidgetList(),
+      ),
     );
   }
 }

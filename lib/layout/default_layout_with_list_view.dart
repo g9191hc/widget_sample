@@ -6,6 +6,8 @@ class DefaultLayoutWithListView extends StatelessWidget {
   Widget? floatingActionButton;
   FloatingActionButtonLocation? floatingActionButtonLocation;
   Widget? bottomNavigationBar;
+  Widget? drawer;
+  Widget? endDrawer;
 
   DefaultLayoutWithListView({
     super.key,
@@ -14,6 +16,8 @@ class DefaultLayoutWithListView extends StatelessWidget {
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.bottomNavigationBar,
+    this.drawer,
+    this.endDrawer,
   });
 
   @override
@@ -26,6 +30,8 @@ class DefaultLayoutWithListView extends StatelessWidget {
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       bottomNavigationBar: bottomNavigationBar,
+      drawer: drawer,
+      endDrawer: endDrawer,
       body: _Body(children: children),
     );
   }

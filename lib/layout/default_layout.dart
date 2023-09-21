@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class DefaultLayout extends StatelessWidget {
   final String title;
   final Widget child;
+
   Widget? floatingActionButton;
   FloatingActionButtonLocation? floatingActionButtonLocation;
   Widget? bottomNavigationBar;
+  Widget? drawer;
+  Widget? endDrawer;
+
 
   DefaultLayout({
     super.key,
@@ -14,6 +18,8 @@ class DefaultLayout extends StatelessWidget {
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.bottomNavigationBar,
+    this.drawer,
+    this.endDrawer,
   });
 
   @override
@@ -23,6 +29,8 @@ class DefaultLayout extends StatelessWidget {
         title: Text(title),
         centerTitle: true,
       ),
+      drawer: drawer,
+      endDrawer: endDrawer,
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       bottomNavigationBar: bottomNavigationBar,

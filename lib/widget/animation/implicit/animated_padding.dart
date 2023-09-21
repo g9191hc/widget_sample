@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../layout/default_layout_with_list_view.dart';
 
@@ -18,6 +19,7 @@ class _AnimatedPaddingSampleState extends State<AnimatedPaddingSample> {
     return DefaultLayoutWithListView(
       floatingActionButton: _floatingActionButton(),
       title: 'AnimatedPadding',
+      endDrawer : const _EndDrawer(),
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,6 +54,23 @@ class _AnimatedPaddingSampleState extends State<AnimatedPaddingSample> {
   }
 }
 
+
+
+
+class _EndDrawer extends StatelessWidget {
+  const _EndDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Drawer(
+      child: Center(
+        child: Text('abc'),
+      ),
+    );
+  }
+}
+
+
 class AnimatedPaddingBoxRow extends StatelessWidget {
   final double padding;
   final int count;
@@ -82,11 +101,12 @@ class AnimatedPaddingBox extends StatelessWidget {
         return AnimatedPadding(
           padding: EdgeInsets.all(padding),
           duration: const Duration(milliseconds: 300),
-          curve: Curves.fastEaseInToSlowEaseOut,
+          curve: Curves.linear,
           child: Container(
             height: constraints.maxWidth,
             color: Colors.blue,
           ),
+          // onEnd: (){print('end');},
         );
       }),
     );
