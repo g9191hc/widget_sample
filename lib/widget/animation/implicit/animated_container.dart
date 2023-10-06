@@ -17,6 +17,7 @@ class _AnimatedContainerSampleState extends State<AnimatedContainerSample> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return DefaultLayoutWithListView(
